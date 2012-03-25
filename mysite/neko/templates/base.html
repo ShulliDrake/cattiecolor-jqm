@@ -1,8 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><title>{% block title %}YawnNeko{% endblock %}</title>
+<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/home.css" />
+<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.css" />
 </head>
 <body>
 
+<header class="navbar">
+  <div class="navbar-inner">
+    <h1>Nyan Page</h1>
+  </div>
+</header>
+
+<div id="container">
+
+{% block content %}
+{% endblock %}
+
+</div><!--container-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 </body>
 </html>
