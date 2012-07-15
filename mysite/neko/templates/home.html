@@ -7,7 +7,23 @@
 <div id="content">
 
   <section class="cat">
-    <div>cat</div>
+
+    <div class="btn-group">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        Select your cat
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="#cat1">cat1</a></li>
+        <li><a href="#cat2">cat2</a></li>
+        <li><a href="#cat3">cat3</a></li>
+        <li><a href="#cat4">cat4</a></li>
+      </ul>
+    </div>
+
+    <div id="catphoto">
+      <img src="{{ STATIC_URL }}images/cat.gif" style="padding:20px 10px;" /><!--Temporary, TODO-->
+    </div>
   </section>
 
   <section class="colors">
