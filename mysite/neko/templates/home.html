@@ -31,16 +31,13 @@
       <thead>
       </thead>
       <tbody>
+      {% for row in colors %}
 	<tr>
-	  <td><span class="i"></span>black</td>
-	  <td>darkgray</td>
-	  <td>gray</td>
+        {% for color, name in row.items %}
+	  <td id="{{ color }}">{{ name }}</td>
+        {% endfor %}
 	</tr>
-	<tr>
-	  <td>navy</td>
-	  <td>blue</td>
-	  <td>skyblue</td>
-	</tr>
+      {% endfor %}
       </tbody>
     </table>
   </section>

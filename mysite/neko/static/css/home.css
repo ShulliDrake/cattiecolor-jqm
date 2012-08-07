@@ -6,6 +6,7 @@ header {}
 #content section { float:left; }
 #content .cat { width:300px; }
 #content .colors { }
+#content .colors .table tbody tr:hover td { background-color:#fff; }
 
 footer { clear:left; display:block; padding: 30px 50px; background-color:#f7f7f7; }
 

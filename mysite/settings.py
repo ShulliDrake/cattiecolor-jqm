@@ -1,5 +1,7 @@
 # Django settings for mysite project.
 
+from configs.default import *
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
