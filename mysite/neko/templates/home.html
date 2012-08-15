@@ -24,22 +24,37 @@
     <div id="catphoto">
       <img src="{{ STATIC_URL }}images/cat.gif" style="padding:20px 10px;" /><!--Temporary, TODO-->
     </div>
+    <div class="color_label"></div>
   </section>
 
   <section class="colors">
-    <table class="table">
-      <thead>
-      </thead>
-      <tbody>
-      {% for row in colors %}
-	<tr>
-        {% for color, name in row.items %}
-	  <td id="{{ color }}">{{ name }}</td>
+
+    <div class="tabs">
+      <ul>
+        <li id="tab1" class="current">Shirt</li>
+        <li id="tab2">Tie</li>
+      </ul>
+    </div>
+    <div class="tabscontent">
+      <div id="tab1content" class="tabcontent current">
+      <table class="table">
+        <thead>
+        </thead>
+        <tbody>
+        {% for row in colors %}
+          <tr>
+          {% for color, name in row.items %}
+            <td id="{{ color }}">{{ name }}</td>
+          {% endfor %}
+          </tr>
         {% endfor %}
-	</tr>
-      {% endfor %}
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+      </div>
+      <div id="tab2content" class="tabcontent">
+        <div style="border:1px solid gray"><p>TODO:Tie colors!</p></div>
+      </div>
+    </div><!--tabscontent-->
   </section>
 </div><!--home-->
 {% endblock %}
