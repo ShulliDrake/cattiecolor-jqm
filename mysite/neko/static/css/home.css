@@ -8,8 +8,7 @@ header {}
 
 .tabs ul li { float:left; width:50px; text-align:center; padding:5px; border:1px solid #eee; margin-right:5px; }
 .tabs ul li.current { background-color: skyblue; font-weight:bold; border: 1px solid skyblue; }
-#content .tabscontent .current { display:block;  }
-#content .tabcontent { display:none; clear:both; }
+#content .tabcontent { clear:both; }
 
 #content { padding:15px; }
 #content section { float:left; }

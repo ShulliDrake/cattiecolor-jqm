@@ -18,7 +18,7 @@ $(function(){
 NK.models.tabsModel = Backbone.Model.extend({
 
     defaults: {
-        currentTab: 'tab1'
+        currentTab: 'tab1'  // tab1 or tab2
     },
 
     initialize: function() {
@@ -40,14 +40,10 @@ NK.views.tabs = Backbone.View.extend({
     initialize: function() {
         this.model.bind('change:currentTab', this.switchTabContent, this);
 
-        var tabsArray = ['shirt', 'tie'];
-
-        for (var i = 0; i < tabsArray.length; i++){
-            var colorTable = new NK.views.ColorTable({
-		el: $('#tab'+i+'content'),
-                model: new NK.models.colorModel
-            });
-        }
+        var colorTable = new NK.views.ColorTable({
+            el: $('.tabcontent'),
+            model: new NK.models.colorModel
+        });
     },
 
     switchTab: function(e) {
@@ -61,9 +57,7 @@ NK.views.tabs = Backbone.View.extend({
 
     switchTabContent: function() {
         /*** TODO ***/
-        var tabId = this.model.get('currentTab');
-        $('#tab1content').toggleClass('current');
-        $('#tab2content').toggleClass('current');
+
     }
 
 });
