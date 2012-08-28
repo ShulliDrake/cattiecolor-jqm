@@ -12,10 +12,17 @@ header {}
 
 #content { padding:15px; }
 #content section { float:left; }
-#content .cat { width:300px; }
+#content .cat { width:300px; margin-right:25px; }
 #content .colors { }
 #content .colors .table tbody tr:hover td { background-color:#fff; }
 
+
+/* Cat Photo */
+#catphoto span { width:130px; height:130px; display:block; padding:20px 50px; }
+#catphoto .cat1 { background:url('/static/images/cat.gif') no-repeat center; }
+#catphoto .cat2 { background:url('/static/images/cat2.gif') no-repeat center; }
+#catphoto .cat3 { background:url('/static/images/cat3.gif') no-repeat center; }
+#catphoto .cat4 { background:url('/static/images/cat4.gif') no-repeat center; }
 
 footer { clear:left; display:block; padding: 30px 50px; background-color:#f7f7f7; }
 

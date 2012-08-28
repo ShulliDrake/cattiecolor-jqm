@@ -12,13 +12,19 @@ $(function(){
         model: new NK.models.tabsModel
     });
 
+    var cats = new NK.views.catPhoto({
+        el: $('.cat'),
+        model: new NK.models.tabsModel
+    });
+
 }); //document ready
 
 
 NK.models.tabsModel = Backbone.Model.extend({
 
     defaults: {
-        currentTab: 'tab1'  // tab1 or tab2
+        currentTab: 'tab1',  // tab1 or tab2
+        currentCat: null
     },
 
     initialize: function() {
@@ -26,10 +32,41 @@ NK.models.tabsModel = Backbone.Model.extend({
 
     setCurrentTab: function(id) {
         this.set('currentTab', id);
+    },
+
+    setCat: function(catNum) {
+        this.set('currentCat', catNum)
     }
 
 });
 
+NK.views.catPhoto = Backbone.View.extend({
+
+    events: {
+        'click .dropdown-menu li': 'switchPhoto'
+    },
+
+    initialize: function() {
+        this.model.bind('change:currentCat', this.render, this);
+    },
+
+    render: function() {
+        // remove all classes and add new class to a photo container
+        this.$('#catphoto span').removeClass();
+        this.$('#catphoto span').addClass(this.model.get('currentCat'));
+    },
+
+    switchPhoto: function(e) {
+        e.preventDefault();
+        //dropdown menu clicked, switch cat photo
+        if (e && e.target) {
+            var catNum = $(e.target).attr('href');
+            catNum = catNum.substring(1);
+            this.model.setCat(catNum);
+        }
+    }
+
+});
 
 NK.views.tabs = Backbone.View.extend({
 
