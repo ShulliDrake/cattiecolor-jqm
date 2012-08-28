@@ -132,7 +132,7 @@ NK.views.ColorTable = Backbone.View.extend({
 
     updateColor: function() {
         //TODO
-        $('#catphoto').css('background-color', this.model.get('previewColor'));
+        $('#catphoto span').css('background-color', this.model.get('previewColor'));
         $('.cat .color_label').html(this.model.get('previewColorName'));
     },
 
@@ -147,7 +147,7 @@ NK.views.ColorTable = Backbone.View.extend({
 
     resetColor: function() {
         //TODO
-        $('#catphoto').css('background-color', this.model.get('currentColor'));
+        $('#catphoto span').css('background-color', this.model.get('currentColor'));
     }
 
 });
