@@ -104,7 +104,8 @@ NK.models.colorModel = Backbone.Model.extend({
 
     defaults:{
         currentColor: '#fff',
-        previewColor: '#fff'
+        previewColor: '#fff',
+        previewColorName: ''
     },
 
     setColor: function(newColor) {
@@ -114,6 +115,7 @@ NK.models.colorModel = Backbone.Model.extend({
     setPreviewColor: function(previewColor, previewColorName) {
         this.set('previewColor', previewColor);
         this.set('previewColorName', previewColorName);
+        this.trigger('ColorChanged');
     }
 
 });
@@ -127,7 +129,8 @@ NK.views.ColorTable = Backbone.View.extend({
     },
 
     initialize: function(){
-        this.model.bind('change:previewColor', this.updateColor, this);
+//        this.model.bind('change:previewColor', this.updateColor, this);
+        this.model.bind('ColorChanged', this.updateColor, this);
     },
 
     updateColor: function() {
@@ -142,7 +145,9 @@ NK.views.ColorTable = Backbone.View.extend({
     },
 
     changeColor: function(e) {
-        if (e && e.target) this.model.setPreviewColor(e.target.id, $(e.target).text());
+        if (e && e.target && e.target.id) {
+            this.model.setPreviewColor(e.target.id, $(e.target).text());
+        }
     },
 
     resetColor: function() {
