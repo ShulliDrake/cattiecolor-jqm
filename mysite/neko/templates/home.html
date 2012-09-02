@@ -37,19 +37,13 @@
     </div>
     <div class="tabscontent">
       <div class="tabcontent">
-      <table class="table">
-        <thead>
-        </thead>
-        <tbody>
         {% for row in colors %}
-          <tr>
+          <ul>
           {% for color, name in row.items %}
-            <td id="{{ color }}">{{ name }}</td>
+            <li id="{{ color }}">{{ name }}</li>
           {% endfor %}
-          </tr>
+          </ul>
         {% endfor %}
-        </tbody>
-      </table>
       </div>
     </div><!--tabscontent-->
   </section>

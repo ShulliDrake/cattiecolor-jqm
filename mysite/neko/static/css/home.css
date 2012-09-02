@@ -2,13 +2,17 @@ a { text-decoration:none; }
 ul { margin:0; }
 li { list-style:none; }
 
-#container { width:950px; min-height:550px; }
+#container { min-width:950px; min-height:550px; }
 
 header {}
 
-.tabs ul li { float:left; width:50px; text-align:center; padding:5px; border:1px solid #eee; margin-right:5px; }
+#content { max-width:1200px; margin-left:auto; margin-right:auto; }
+
+.tabs ul li { float:left; width:50px; text-align:center; padding:3px 5px; border:1px solid #eee; border-bottom:none; margin-right:5px; border-top-left-radius:5px; border-top-right-radius:5px; }
 .tabs ul li.current { background-color: skyblue; font-weight:bold; border: 1px solid skyblue; }
 #content .tabcontent { clear:both; }
+#content .tabcontent { border:1px solid #e1e1e1; border-bottom-left-radius:5px; border-bottom-right-radius:5px; margin-top:-1px; }
+#content .tabcontent ul li { display:inline-block; width:80px; padding:5px 10px; }
 
 #content { padding:15px; }
 #content section { float:left; }
