@@ -4,21 +4,21 @@ from collections import OrderedDict
 TIE_COLORS = [
     OrderedDict(
         [('#000', 'Black'),
-         ('#404040', 'Gray'),
-         ('#A0A0A0', 'Light Gray')]),
+         ('#423732', 'Gunmetal'),
+         ('#C0C0C0', 'Silver')]),
     OrderedDict(
         [('#151B54', 'Navy'),
          ('#151B8D', 'Blue'),
          ('#82CAFF', 'Sky Blue')]),
     OrderedDict(
-        [('#FF3300', 'Orange'),
-         ('#FF704D', 'Salmon'),
-         ('#FF9933', 'Light Orange')]),
+        [('#FF7518', 'Pumpkin'),
+         ('#FF7F50', 'Coral'),
+         ('#FFBF00', 'Amber')]),
     OrderedDict(
-        [('#FF0000', 'Red'),
-         ('#FF99CC', 'Pink'),
-         ('#FFCCCC', 'Light Pink')]),
+        [('#E0115F', 'Ruby'),
+         ('#FF69B4', 'Hot Pink'),
+         ('#FFA6C9', 'Carnation Pink')]),
     OrderedDict(
-        [('#FFFF00', 'Yellow'),
+        [('#FBEC5D', 'Maize'),
          ('#FFFF66', 'Light Yellow'),
-         ('#FFFFD1', 'Creme')])]
+         ('#FFFDD0', 'Creme')])]

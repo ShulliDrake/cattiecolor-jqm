@@ -7,7 +7,7 @@ NK.views = {}; // Backbone views
 
 $(function(){
 
-    var tabs = new NK.views.tabs({
+    var colors = new NK.views.colorTable({
         el: $('.colors'),
         model: new NK.models.tabsModel
     });
@@ -24,10 +24,11 @@ NK.models.tabsModel = Backbone.Model.extend({
 
     defaults: {
         currentTab: 'tab1',  // tab1 or tab2
-        currentCat: null
-    },
-
-    initialize: function() {
+        currentCat: null,
+        currentColor: '#fff',
+        currentTieColor: '#fff',
+        previewColor: '#fff',
+        previewColorName: ''
     },
 
     setCurrentTab: function(id) {
@@ -36,6 +37,21 @@ NK.models.tabsModel = Backbone.Model.extend({
 
     setCat: function(catNum) {
         this.set('currentCat', catNum)
+    },
+
+    setColor: function(newColor) {
+        // TODO
+        if (this.get('currentTab') == 'tab1') {
+            this.set('currentColor', newColor);
+        } else {
+            this.set('currentTieColor', newColor);
+        }
+    },
+
+    setPreviewColor: function(previewColor, previewColorName) {
+        this.set('previewColor', previewColor);
+        this.set('previewColorName', previewColorName);
+        this.trigger('ColorChanged');
     }
 
 });
@@ -68,69 +84,26 @@ NK.views.catPhoto = Backbone.View.extend({
 
 });
 
-NK.views.tabs = Backbone.View.extend({
+
+NK.views.colorTable = Backbone.View.extend({
 
     events: {
-        'click .tabs li': 'switchTab'
+        'click .tabs li': 'switchTab',
+        'click .tabcontent li': 'updateCurrentColor',
+        'mouseover .tabcontent li': 'changeColor',
+        'mouseleave .tabcontent': 'resetColor'
     },
 
-    initialize: function() {
-        this.model.bind('change:currentTab', this.switchTabContent, this);
-
-        var colorTable = new NK.views.ColorTable({
-            el: $('.tabcontent'),
-            model: new NK.models.colorModel
-        });
+    initialize: function(){
+        this.model.bind('ColorChanged', this.updateColor, this);
     },
 
     switchTab: function(e) {
         if (e && e.target) {
             $(e.target).addClass('current');
             $(e.target).siblings().removeClass('current');
-
             this.model.setCurrentTab(e.target.id);
         }
-    },
-
-    switchTabContent: function() {
-        /*** TODO ***/
-
-    }
-
-});
-
-
-NK.models.colorModel = Backbone.Model.extend({
-
-    defaults:{
-        currentColor: '#fff',
-        previewColor: '#fff',
-        previewColorName: ''
-    },
-
-    setColor: function(newColor) {
-        this.set('currentColor', newColor);
-    },
-
-    setPreviewColor: function(previewColor, previewColorName) {
-        this.set('previewColor', previewColor);
-        this.set('previewColorName', previewColorName);
-        this.trigger('ColorChanged');
-    }
-
-});
-
-NK.views.ColorTable = Backbone.View.extend({
-
-    events: {
-        'click': 'updateCurrentColor',
-        'mouseover': 'changeColor',
-        'mouseleave': 'resetColor'
-    },
-
-    initialize: function(){
-//        this.model.bind('change:previewColor', this.updateColor, this);
-        this.model.bind('ColorChanged', this.updateColor, this);
     },
 
     updateColor: function() {
@@ -141,7 +114,12 @@ NK.views.ColorTable = Backbone.View.extend({
 
     // event handlers
     updateCurrentColor: function(e) {
-        if (e && e.target) this.model.setColor(e.target.id);
+        if (e && e.target && e.target.id) {
+            var currentTab = this.model.get('currentTab');
+            this.$('.tabcontent .' + currentTab).removeClass();
+            $(e.target).addClass('selected ' + currentTab);
+            this.model.setColor(e.target.id);
+        }
     },
 
     changeColor: function(e) {
@@ -151,8 +129,10 @@ NK.views.ColorTable = Backbone.View.extend({
     },
 
     resetColor: function() {
+        // mouseleave tabcontent
         //TODO
         $('#catphoto span').css('background-color', this.model.get('currentColor'));
+        $('.cat .color_label').html('');
     }
 
 });

@@ -12,13 +12,18 @@ header {}
 .tabs ul li.current { background-color: skyblue; font-weight:bold; border: 1px solid skyblue; }
 #content .tabcontent { clear:both; }
 #content .tabcontent { border:1px solid #e1e1e1; border-bottom-left-radius:5px; border-bottom-right-radius:5px; margin-top:-1px; }
-#content .tabcontent ul li { display:inline-block; width:80px; padding:5px 10px; }
+#content .tabcontent ul li { display:inline-block; min-width:82px; height:20px; padding:5px 10px; font-size:10px; }
+#content .tabcontent ul li:hover { background-color:#F5F5DC; }
+#content .tabcontent ul li.selected { font-weight:bold; }
+#content .tabcontent span.c { float:right; width:15px; height:15px; }
+
+
 
 #content { padding:15px; }
 #content section { float:left; }
 #content .cat { width:300px; margin-right:25px; }
 #content .colors { }
-#content .colors .table tbody tr:hover td { background-color:#fff; }
+
 
 
 /* Cat Photo */
