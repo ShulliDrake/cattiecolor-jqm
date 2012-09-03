@@ -114,17 +114,28 @@ NK.views.colorTable = Backbone.View.extend({
 
     // event handlers
     updateCurrentColor: function(e) {
-        if (e && e.target && e.target.id) {
-            var currentTab = this.model.get('currentTab');
-            this.$('.tabcontent .' + currentTab).removeClass();
-            $(e.target).addClass('selected ' + currentTab);
-            this.model.setColor(e.target.id);
+        if (e && e.target) {
+
+            if (!e.target.id) {
+                e.target = e.target.parentNode;
+            }
+            if (e.target.id) {
+                var currentTab = this.model.get('currentTab');
+                this.$('.tabcontent .' + currentTab).removeClass();
+                $(e.target).addClass('selected ' + currentTab);
+                this.model.setColor(e.target.id);
+            }
         }
     },
 
     changeColor: function(e) {
-        if (e && e.target && e.target.id) {
-            this.model.setPreviewColor(e.target.id, $(e.target).text());
+        if (e && e.target) {
+            if (!e.target.id) {
+                e.target = e.target.parentNode;
+            }
+            if (e.target.id) {
+                this.model.setPreviewColor(e.target.id, $(e.target).text());
+            }
         }
     },
 
