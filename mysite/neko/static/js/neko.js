@@ -23,12 +23,16 @@ $(function(){
 NK.models.tabsModel = Backbone.Model.extend({
 
     defaults: {
-        currentTab: 'tab1',  // tab1 or tab2
+        currentTab: 'shirt',  // shirt or tie
         currentCat: null,
-        currentColor: '#fff',
-        currentTieColor: '#fff',
+        shirtColor: '#fff',
+        tieColor: '#fff',
         previewColor: '#fff',
-        previewColorName: ''
+        previewColorName: '',
+        catSelector: {
+            shirt:'.shirt',  //selector
+            tie:'.tie'  //selector
+        }
     },
 
     setCurrentTab: function(id) {
@@ -41,10 +45,10 @@ NK.models.tabsModel = Backbone.Model.extend({
 
     setColor: function(newColor) {
         // TODO
-        if (this.get('currentTab') == 'tab1') {
-            this.set('currentColor', newColor);
+        if (this.get('currentTab') == 'shirt') {
+            this.set('shirtColor', newColor);
         } else {
-            this.set('currentTieColor', newColor);
+            this.set('tieColor', newColor);
         }
     },
 
@@ -56,46 +60,19 @@ NK.models.tabsModel = Backbone.Model.extend({
 
 });
 
-NK.views.catPhoto = Backbone.View.extend({
-
-    events: {
-        'click .dropdown-menu li': 'switchPhoto'
-    },
-
-    initialize: function() {
-        this.model.bind('change:currentCat', this.render, this);
-    },
-
-    render: function() {
-        // remove all classes and add new class to a photo container
-        this.$('#catphoto span').removeClass();
-        this.$('#catphoto span').addClass(this.model.get('currentCat'));
-    },
-
-    switchPhoto: function(e) {
-        e.preventDefault();
-        //dropdown menu clicked, switch cat photo
-        if (e && e.target) {
-            var catNum = $(e.target).attr('href');
-            catNum = catNum.substring(1);
-            this.model.setCat(catNum);
-        }
-    }
-
-});
-
-
 NK.views.colorTable = Backbone.View.extend({
 
     events: {
         'click .tabs li': 'switchTab',
-        'click .tabcontent li': 'updateCurrentColor',
+        'click .tabcontent li': 'setCurrentColor',
         'mouseover .tabcontent li': 'changeColor',
         'mouseleave .tabcontent': 'resetColor'
     },
 
     initialize: function(){
-        this.model.bind('ColorChanged', this.updateColor, this);
+        this.model.bind('ColorChanged', this.updatePreviewColor, this);
+        this.model.bind('change:shirtColor', this.updateShirtColor, this);
+        this.model.bind('change:tieColor', this.updateTieColor, this);
     },
 
     switchTab: function(e) {
@@ -106,14 +83,30 @@ NK.views.colorTable = Backbone.View.extend({
         }
     },
 
-    updateColor: function() {
+    updateShirtColor: function() {
+        var newColor = this.model.get('shirtColor');
+        var bgSelector = this.model.get('catSelector');
+        $(bgSelector.shirt, '#catphoto').css('background-color', newColor);
+        $(bgSelector.shirt, '.color_label').text(this.model.get('previewColorName'));
+    },
+
+    updateTieColor: function() {
+        var newColor = this.model.get('tieColor');
+        var bgSelector = this.model.get('catSelector');
+        $(bgSelector.tie, '#catphoto').css('background-color', newColor);
+    },
+
+    updatePreviewColor: function() {
+        var currentTab = this.model.get('currentTab');
+        var bgSelector = this.model.get('catSelector');
+
         //TODO
-        $('#catphoto span').css('background-color', this.model.get('previewColor'));
-        $('.cat .color_label').html(this.model.get('previewColorName'));
+        $(bgSelector[currentTab], '#catphoto').css('background-color', this.model.get('previewColor'));
+        $(bgSelector[currentTab], '.cat .color_label').html(this.model.get('previewColorName'));
     },
 
     // event handlers
-    updateCurrentColor: function(e) {
+    setCurrentColor: function(e) {
         if (e && e.target) {
 
             if (!e.target.id) {
@@ -142,8 +135,41 @@ NK.views.colorTable = Backbone.View.extend({
     resetColor: function() {
         // mouseleave tabcontent
         //TODO
-        $('#catphoto span').css('background-color', this.model.get('currentColor'));
-        $('.cat .color_label').html('');
+        var bgSelector = this.model.get('catSelector');
+
+        $('#catphoto span.shirt').css('background-color', this.model.get('shirtColor'));
+        $('#catphoto span.tie').css('background-color', this.model.get('tieColor'));
+//        $(bgSelector.shirt, '.color_label').html('');
+//        $(bgSelector.shirt, '.color_label').html(this.model.get('previewColorName'));
+//        $(bgSelector.tie, '.color_label').html('');
+    }
+
+});
+
+NK.views.catPhoto = Backbone.View.extend({
+
+    events: {
+        'click .dropdown-menu li': 'switchPhoto'
+    },
+
+    initialize: function() {
+        this.model.bind('change:currentCat', this.render, this);
+    },
+
+    render: function() {
+        // remove all classes and add new class to a photo container
+        this.$('#catphoto span.shirt').removeClass(this.model.previous('currentCat'));
+        this.$('#catphoto span.shirt').addClass(this.model.get('currentCat'));
+    },
+
+    switchPhoto: function(e) {
+        e.preventDefault();
+        //dropdown menu clicked, switch cat photo
+        if (e && e.target) {
+            var catNum = $(e.target).attr('href');
+            catNum = catNum.substring(1);
+            this.model.setCat(catNum);
+        }
     }
 
 });
