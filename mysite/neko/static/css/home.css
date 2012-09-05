@@ -1,13 +1,13 @@
-body { background-color:#eee; }
+body { background-color:#F0F8FF; }
 a { text-decoration:none; }
 ul { margin:0; }
 li { list-style:none; }
 
-#container { min-width:950px; }
+#container {}
 
 header {}
 
-#content { max-width:1200px; min-height:550px; margin-left:auto; margin-right:auto; background-color:#fff; margin-bottom:18px; border-radius:5px; box-shadow:0 0 20px #ccc; }
+#content { width:950px; min-height:550px; margin-left:auto; margin-right:auto; background-color:#fff; margin-bottom:18px; border-radius:5px; box-shadow:0 0 20px #ccc; }
 
 .tabs { height:24px; border-bottom:1px solid #f1f1f1; margin-right:4px; }
 .tabs ul li { float:left; width:50px; text-align:center; padding:3px 5px; border:1px solid #e1e1e1; border-top-right-radius:8px; border-bottom:none; }
@@ -21,13 +21,14 @@ header {}
 #content .tabcontent ul li.selected span.c { box-shadow:4px 4px 4px #606060; width:33px; height:22px; }
 
 
-#content { padding:15px; }
+#content { padding:25px; }
 #content section { float:left; }
 #content .cat { width:300px; margin-right:25px; }
 #content .colors { }
 
 
 /* Cat Photo */
+#catphoto { margin-top:10px; }
 #catphoto span.shirt { width:130px; height:130px; display:block; padding:20px 50px; }
 #catphoto span.tie { width:130px; height:30px; display:block; padding:0px 50px; } /* class name TODO */
 #catphoto .cat1 { background:url('/static/images/cat.gif') no-repeat center; }

@@ -92,8 +92,10 @@ NK.views.colorTable = Backbone.View.extend({
 
     updateTieColor: function() {
         var newColor = this.model.get('tieColor');
-        var bgSelector = this.model.get('catSelector');
-        $(bgSelector.tie, '#catphoto').css('background-color', newColor);
+        // update tie color
+        $('#tie_block .tie_top, #tie_block .tie_bottom').css('border-color', newColor + ' transparent transparent')
+        $('#tie_block .tie_center').css('border-color', 'transparent transparent ' + newColor + ' transparent')
+
     },
 
     updatePreviewColor: function() {
@@ -103,6 +105,12 @@ NK.views.colorTable = Backbone.View.extend({
         //TODO
         $(bgSelector[currentTab], '#catphoto').css('background-color', this.model.get('previewColor'));
         $(bgSelector[currentTab], '.cat .color_label').html(this.model.get('previewColorName'));
+
+        if (currentTab == 'tie') {
+            // change tie color
+            $('#tie_block .tie_top, #tie_block .tie_bottom').css('border-color', this.model.get('previewColor') + ' transparent transparent transparent')
+            $('#tie_block .tie_center').css('border-color', 'transparent transparent ' + this.model.get('previewColor') + ' transparent')
+        }
     },
 
     // event handlers
@@ -138,10 +146,12 @@ NK.views.colorTable = Backbone.View.extend({
         var bgSelector = this.model.get('catSelector');
 
         $('#catphoto span.shirt').css('background-color', this.model.get('shirtColor'));
-        $('#catphoto span.tie').css('background-color', this.model.get('tieColor'));
 //        $(bgSelector.shirt, '.color_label').html('');
 //        $(bgSelector.shirt, '.color_label').html(this.model.get('previewColorName'));
 //        $(bgSelector.tie, '.color_label').html('');
+        // reset tie color
+        $('#tie_block .tie_top, #tie_block .tie_bottom').css('border-color', this.model.get('tieColor') + ' transparent transparent')
+        $('#tie_block .tie_center').css('border-color', 'transparent transparent ' + this.model.get('tieColor') + ' transparent')
     }
 
 });
