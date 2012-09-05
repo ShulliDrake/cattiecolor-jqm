@@ -1,12 +1,13 @@
+body { background-color:#eee; }
 a { text-decoration:none; }
 ul { margin:0; }
 li { list-style:none; }
 
-#container { min-width:950px; min-height:550px; }
+#container { min-width:950px; }
 
 header {}
 
-#content { max-width:1200px; margin-left:auto; margin-right:auto; }
+#content { max-width:1200px; min-height:550px; margin-left:auto; margin-right:auto; background-color:#fff; margin-bottom:18px; border-radius:5px; box-shadow:0 0 20px #ccc; }
 
 .tabs { height:24px; border-bottom:1px solid #f1f1f1; margin-right:4px; }
 .tabs ul li { float:left; width:50px; text-align:center; padding:3px 5px; border:1px solid #e1e1e1; border-top-right-radius:8px; border-bottom:none; }
@@ -33,6 +34,11 @@ header {}
 #catphoto .cat2 { background:url('/static/images/cat2.gif') no-repeat center; }
 #catphoto .cat3 { background:url('/static/images/cat3.gif') no-repeat center; }
 #catphoto .cat4 { background:url('/static/images/cat4.gif') no-repeat center; }
+
+/* Tie Shape */
+#tie_block:before { position:absolute; width:10px; content:''; top:1px; left:-4px; border-width:10px 4px 0 4px; border-color:#ddd transparent transparent transparent; border-style:solid; }
+#tie_block { position:relative; width:10px; height:10px; border-width:0 5px 30px 5px; border-color:transparent transparent #ddd transparent; border-style:solid; }
+#tie_block:after { position:absolute; content:''; top:40px; left:-5px; border-width:10px 10px 0 10px; border-color:#ddd transparent transparent transparent; border-style:solid; }
 
 /* Color Labels */
 .cat .color_label { font-size:11px; }
