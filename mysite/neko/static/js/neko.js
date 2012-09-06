@@ -25,7 +25,7 @@ NK.models.tabsModel = Backbone.Model.extend({
     defaults: {
         currentTab: 'shirt',  // shirt or tie
         currentCat: null,
-        shirtColor: '#fff',
+        shirtColor: '#000',
         tieColor: '#fff',
         previewColor: '#fff',
         previewColorName: '',
@@ -83,11 +83,15 @@ NK.views.colorTable = Backbone.View.extend({
         }
     },
 
+    // shirt color is clicked
     updateShirtColor: function() {
         var newColor = this.model.get('shirtColor');
         var bgSelector = this.model.get('catSelector');
         $(bgSelector.shirt, '#catphoto').css('background-color', newColor);
         $(bgSelector.shirt, '.color_label').text(this.model.get('previewColorName'));
+
+        $('#shirt_block .shirt_top').css('border-color', 'transparent transparent ' + newColor + ' transparent')
+        $('#shirt_block .shirt_bottom').css('border-color', newColor + ' transparent transparent')
     },
 
     updateTieColor: function() {
@@ -110,6 +114,9 @@ NK.views.colorTable = Backbone.View.extend({
             // change tie color
             $('#tie_block .tie_top, #tie_block .tie_bottom').css('border-color', this.model.get('previewColor') + ' transparent transparent transparent')
             $('#tie_block .tie_center').css('border-color', 'transparent transparent ' + this.model.get('previewColor') + ' transparent')
+        } else {
+            $('#shirt_block .shirt_top').css('border-color', 'transparent transparent ' + this.model.get('previewColor') + ' transparent')
+            $('#shirt_block .shirt_bottom').css('border-color', this.model.get('previewColor') + ' transparent transparent transparent')
         }
     },
 
@@ -146,9 +153,15 @@ NK.views.colorTable = Backbone.View.extend({
         var bgSelector = this.model.get('catSelector');
 
         $('#catphoto span.shirt').css('background-color', this.model.get('shirtColor'));
+
+//TODO: update color label
 //        $(bgSelector.shirt, '.color_label').html('');
 //        $(bgSelector.shirt, '.color_label').html(this.model.get('previewColorName'));
 //        $(bgSelector.tie, '.color_label').html('');
+
+        // reset shirt color
+        $('#shirt_block .shirt_top').css('border-color', 'transparent transparent ' + this.model.get('shirtColor') + ' transparent')
+        $('#shirt_block .shirt_bottom').css('border-color', this.model.get('shirtColor') + ' transparent transparent')
         // reset tie color
         $('#tie_block .tie_top, #tie_block .tie_bottom').css('border-color', this.model.get('tieColor') + ' transparent transparent')
         $('#tie_block .tie_center').css('border-color', 'transparent transparent ' + this.model.get('tieColor') + ' transparent')
