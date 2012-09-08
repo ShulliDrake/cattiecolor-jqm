@@ -39,12 +39,20 @@ header {}
 /* Shirt & Tie */
 #shirt_block, #tie_block { position:relative; }
 #shirt_block span, #tie_block span { position:absolute; border-style:solid; }
-#shirt_block .shirt_top { width:40px; border-width:0 20px 30px 20px; border-color:#000 transparent; }
-#shirt_block .shirt_bottom { top:30px; width:30px; border-width:80px 25px 0 25px; border-color:#000 transparent; }
+#shirt_block .outer, #tie_block .outer { left:-1px; border-color:#ccc transparent; }
+#shirt_block span { border-color:#111 transparent; }
+#shirt_block .shirt_top_outer { top:-1px; width:42px; border-width:0 20px 31px 20px; }
+#shirt_block .shirt_bottom_outer { top:30px; width:32px; border-width:81px 25px 0 25px; }
+#shirt_block .shirt_top { width:40px; border-width:0 20px 30px 20px; }
+#shirt_block .shirt_bottom { top:30px; width:30px; border-width:80px 25px 0 25px; }
 #tie_block { left:30px; }
-#tie_block .tie_top { width:10px; border-width:10px 5px 0 5px; border-color:#ddd transparent transparent transparent; }
-#tie_block .tie_center { width:10px; height:10px; border-width:0 5px 50px 5px; border-color:transparent transparent #ddd transparent; }
-#tie_block .tie_bottom { top:60px; border-width:10px 10px 0 10px; border-color:#ddd transparent transparent transparent; }
+#tie_block span { border-color:#ddd transparent; }
+#tie_block .tie_top_outer { width:12px; border-width:10px 5px 0 5px; }
+#tie_block .tie_center_outer { width:12px; height:10px; border-width:0 5px 50px 5px; }
+#tie_block .tie_bottom_outer { top:60px; border-width:11px 11px 0 11px; }
+#tie_block .tie_top { width:10px; border-width:10px 5px 0 5px; }
+#tie_block .tie_center { width:10px; height:10px; border-width:0 5px 50px 5px; }
+#tie_block .tie_bottom { top:60px; border-width:10px 10px 0 10px; }
 
 /* Color Labels */
 .cat .color_label { font-size:11px; }
