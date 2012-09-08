@@ -87,7 +87,6 @@ NK.views.colorTable = Backbone.View.extend({
     updateShirtColor: function() {
         var newColor = this.model.get('shirtColor');
         var bgSelector = this.model.get('catSelector');
-        $(bgSelector.shirt, '#catphoto').css('background-color', newColor);
         $(bgSelector.shirt, '.color_label').text(this.model.get('previewColorName'));
 
         $('#shirt_block .shirt_top').css('border-color', 'transparent transparent ' + newColor + ' transparent')
@@ -107,7 +106,6 @@ NK.views.colorTable = Backbone.View.extend({
         var bgSelector = this.model.get('catSelector');
 
         //TODO
-        $(bgSelector[currentTab], '#catphoto').css('background-color', this.model.get('previewColor'));
         $(bgSelector[currentTab], '.cat .color_label').html(this.model.get('previewColorName'));
 
         if (currentTab == 'tie') {
@@ -151,8 +149,6 @@ NK.views.colorTable = Backbone.View.extend({
         // mouseleave tabcontent
         //TODO
         var bgSelector = this.model.get('catSelector');
-
-        $('#catphoto span.shirt').css('background-color', this.model.get('shirtColor'));
 
 //TODO: update color label
 //        $(bgSelector.shirt, '.color_label').html('');
