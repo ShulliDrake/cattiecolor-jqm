@@ -55,7 +55,9 @@
         {% for row in colors %}
           <ul>
           {% for color, name in row.items %}
-            <li id="{{ color }}">{{ name }}<span class="c" style="background-color:{{ color }}"></span></li>
+            <li id="{{ color }}" data-name="{{ name }}">
+              <span class="c" style="background-color:{{ color }}"></span>
+            </li>
           {% endfor %}
           </ul>
         {% endfor %}

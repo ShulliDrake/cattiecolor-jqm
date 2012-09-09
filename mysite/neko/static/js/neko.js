@@ -64,7 +64,7 @@ NK.views.colorTable = Backbone.View.extend({
 
     events: {
         'click .tabs li': 'switchTab',
-        'click .tabcontent li': 'setCurrentColor',
+        'click .tabcontent li span': 'setCurrentColor',
         'mouseover .tabcontent li': 'changeColor',
         'mouseleave .tabcontent': 'resetColor'
     },
@@ -122,15 +122,18 @@ NK.views.colorTable = Backbone.View.extend({
     setCurrentColor: function(e) {
         if (e && e.target) {
 
-            if (!e.target.id) {
-                e.target = e.target.parentNode;
-            }
-            if (e.target.id) {
+//            if (!e.target.id) {
+//                e.target = e.target.parentNode;
+//            }
+//            if (e.target.id) {
+                // TODO - both shirt and tie may pick same color
                 var currentTab = this.model.get('currentTab');
-                this.$('.tabcontent .' + currentTab).removeClass();
-                $(e.target).addClass('selected ' + currentTab);
-                this.model.setColor(e.target.id);
-            }
+                this.$('.tabcontent .' + currentTab).parent().removeClass('selected');
+                this.$('.tabcontent .' + currentTab).removeClass(currentTab);
+                $(e.target).parent('li').addClass('selected');;
+                $(e.target).addClass(currentTab);
+                this.model.setColor(e.target.parentNode.id);
+//            }
         }
     },
 
@@ -140,7 +143,7 @@ NK.views.colorTable = Backbone.View.extend({
                 e.target = e.target.parentNode;
             }
             if (e.target.id) {
-                this.model.setPreviewColor(e.target.id, $(e.target).text());
+                this.model.setPreviewColor(e.target.id, $(e.target).data('name'));
             }
         }
     },

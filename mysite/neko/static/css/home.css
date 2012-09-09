@@ -1,3 +1,4 @@
+* { font-family:Tahoma, Geneva, sans-serif; }
 body { background-color:#F0F8FF; }
 a { text-decoration:none; }
 ul { margin:0; }
@@ -14,12 +15,12 @@ header {}
 .tabs ul li.current { font-weight:bold; border-bottom:1px solid #fff; }
 #content .tabscontent { clear:both; padding-left:10px; padding-bottom:10px; box-shadow:10px 15px 10px #808080; }
 #content .tabscontent { border:1px solid #e1e1e1;border-top:none; border-top-right-radius:7px; border-bottom-left-radius:7px; border-bottom-right-radius:7px; /*margin-top:-1px;*/ }
-#content .tabcontent ul li { position:relative; display:inline-block; min-width:50px; height:30px; padding:5px 5px 5px 0; font-size:8px; }
-#content .tabcontent ul li { visibility:hidden; }
-#content .tabcontent ul li:hover { visibility:visible; /*background-color:#F5F5DC;*/ }
-#content .tabcontent span.c { visibility:visible; position:absolute; bottom:0; left:0; width:30px; height:20px; box-shadow:2px 2px 2px #808080; }
-#content .tabcontent ul li.selected span.c { box-shadow:4px 4px 4px #606060; width:33px; height:22px; }
-
+#content .tabcontent ul li { position:relative; display:inline-block; min-width:50px; height:30px; padding:0 5px 5px 0; font-size:8px; }
+#content .tabcontent span.c { position:absolute; bottom:0; left:0; width:40px; height:30px; box-shadow:2px 2px 2px #808080; }
+#content .tabcontent ul li.selected span.c { box-shadow:4px 4px 4px #606060; width:43px; height:32px; }
+#content li.selected span.shirt, #content li.selected span.tie { text-shadow:#000 0.1em 0.1em 0.2em; color:#fff; font-size:1.9em; line-height:2em; }
+#content .tabcontent ul li.selected span.shirt:before { content:"S"; margin-left:10px; }
+#content .tabcontent ul li.selected span.tie:after { content:"T"; float:right; margin-right:10px; }
 
 #content { padding:25px; }
 #content section { float:left; }
@@ -29,7 +30,7 @@ header {}
 
 /* Cat Photo */
 #catphoto { margin-top:10px; }
-#catphoto span.shirt { width:130px; height:130px; display:block; padding:20px 50px; }
+#catphoto span.shirt { width:130px; height:130px; display:block; padding:10px 30px; }
 #catphoto span.tie { width:130px; height:30px; display:block; padding:0px 50px; } /* class name TODO */
 #catphoto .cat1 { background:url('/static/images/cat.gif') no-repeat center; }
 #catphoto .cat2 { background:url('/static/images/cat2.gif') no-repeat center; }
