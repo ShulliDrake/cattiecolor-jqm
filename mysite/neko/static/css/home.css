@@ -24,12 +24,13 @@ header {}
 
 #content { padding:25px; }
 #content section { float:left; }
-#content .cat { width:300px; margin-right:25px; }
+#content .cat { width:220px; margin-right:10px; }
 #content .colors { }
 
 
 /* Cat Photo */
-#catphoto { margin-top:10px; }
+#catphoto { position:relative; margin-top:10px; }
+#catphoto .cat_bg { display:block; width:160px; background-color:pink; }
 #catphoto span.shirt { width:130px; height:130px; display:block; padding:10px 30px; }
 #catphoto span.tie { width:130px; height:30px; display:block; padding:0px 50px; } /* class name TODO */
 #catphoto .cat1 { background:url('/static/images/cat.gif') no-repeat center; }
@@ -37,16 +38,10 @@ header {}
 #catphoto .cat3 { background:url('/static/images/cat3.gif') no-repeat center; }
 #catphoto .cat4 { background:url('/static/images/cat4.gif') no-repeat center; }
 
-/* Shirt & Tie */
-#shirt_block, #tie_block { position:relative; }
-#shirt_block span, #tie_block span { position:absolute; border-style:solid; }
-#shirt_block .outer, #tie_block .outer { left:-1px; border-color:#ccc transparent; }
-#shirt_block span { border-color:#111 transparent; }
-#shirt_block .shirt_top_outer { top:-1px; width:42px; border-width:0 20px 31px 20px; }
-#shirt_block .shirt_bottom_outer { top:30px; width:32px; border-width:81px 25px 0 25px; }
-#shirt_block .shirt_top { width:40px; border-width:0 20px 30px 20px; }
-#shirt_block .shirt_bottom { top:30px; width:30px; border-width:80px 25px 0 25px; }
-#tie_block { left:30px; }
+/* Tie */
+#tie_block { position:absolute; top:80px; left:60px; }
+#tie_block span { position:absolute; border-style:solid; }
+#tie_block .outer { left:-1px; border-color:#ccc transparent; }
 #tie_block span { border-color:#ddd transparent; }
 #tie_block .tie_top_outer { width:12px; border-width:10px 5px 0 5px; }
 #tie_block .tie_center_outer { width:12px; height:10px; border-width:0 5px 50px 5px; }
@@ -57,7 +52,7 @@ header {}
 
 /* Color Labels */
 .cat .color_label { font-size:11px; }
-.cat .color_label span { display:inline-block; width:60px; height:20px; font-style:italic; }
+.cat .color_label span { display:inline-block; width:70px; height:20px; font-style:italic; }
 
 footer { clear:left; display:block; padding: 30px 50px; background-color:#f7f7f7; }
 
