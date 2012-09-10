@@ -12,11 +12,12 @@ $(function(){
         model: new NK.models.tabsModel
     });
 
+    /* Cat selector drop-down is disabled for now.
     var cats = new NK.views.catPhoto({
         el: $('.cat'),
         model: new NK.models.tabsModel
     });
-
+    */
 }); //document ready
 
 
@@ -89,8 +90,7 @@ NK.views.colorTable = Backbone.View.extend({
         var bgSelector = this.model.get('catSelector');
         $(bgSelector.shirt, '.color_label').text(this.model.get('previewColorName'));
 
-        $('#shirt_block .shirt_top').css('border-color', 'transparent transparent ' + newColor + ' transparent')
-        $('#shirt_block .shirt_bottom').css('border-color', newColor + ' transparent transparent')
+        $('.cat_bg').css('background-color', newColor);
     },
 
     updateTieColor: function() {
@@ -113,8 +113,7 @@ NK.views.colorTable = Backbone.View.extend({
             $('#tie_block .tie_top, #tie_block .tie_bottom').css('border-color', this.model.get('previewColor') + ' transparent transparent transparent')
             $('#tie_block .tie_center').css('border-color', 'transparent transparent ' + this.model.get('previewColor') + ' transparent')
         } else {
-            $('#shirt_block .shirt_top').css('border-color', 'transparent transparent ' + this.model.get('previewColor') + ' transparent')
-            $('#shirt_block .shirt_bottom').css('border-color', this.model.get('previewColor') + ' transparent transparent transparent')
+            $('.cat_bg').css('background-color', this.model.get('previewColor'));
         }
     },
 
@@ -159,8 +158,8 @@ NK.views.colorTable = Backbone.View.extend({
 //        $(bgSelector.tie, '.color_label').html('');
 
         // reset shirt color
-        $('#shirt_block .shirt_top').css('border-color', 'transparent transparent ' + this.model.get('shirtColor') + ' transparent')
-        $('#shirt_block .shirt_bottom').css('border-color', this.model.get('shirtColor') + ' transparent transparent')
+        $('.cat_bg').css('background-color', this.model.get('shirtColor'));
+
         // reset tie color
         $('#tie_block .tie_top, #tie_block .tie_bottom').css('border-color', this.model.get('tieColor') + ' transparent transparent')
         $('#tie_block .tie_center').css('border-color', 'transparent transparent ' + this.model.get('tieColor') + ' transparent')
@@ -168,6 +167,7 @@ NK.views.colorTable = Backbone.View.extend({
 
 });
 
+/* Cat selector drop-down is currently disabled.
 NK.views.catPhoto = Backbone.View.extend({
 
     events: {
@@ -195,3 +195,4 @@ NK.views.catPhoto = Backbone.View.extend({
     }
 
 });
+*/
