@@ -30,7 +30,7 @@ header {}
 
 /* Cat Photo */
 #catphoto { position:relative; padding:30px; box-shadow:0 0 7px 0 #c7cccc inset; border:3px double #c7cccc; background-color:#fff; }
-#catphoto .cat_bg { position:relative; display:block; width:160px; background-color:pink; }
+#catphoto .cat_bg { position:relative; display:block; width:160px; background-color:#fff; background:-webkit-gradient(linear, 50% 0%, 50% 100%, from(#ffffff), to(#000)); }
 #catphoto span.shirt { width:130px; height:130px; display:block; padding:10px 30px; }
 #catphoto span.tie { width:130px; height:30px; display:block; padding:0px 50px; } /* class name TODO */
 #catphoto .cat1 { background:url('/static/images/cat.gif') no-repeat center; }

@@ -94,7 +94,9 @@ NK.views.colorTable = Backbone.View.extend({
         var bgSelector = this.model.get('catSelector');
         $(bgSelector.shirt, '.color_label').text(this.model.get('previewColorName'));
 
-        $('.cat_bg').css('background-color', newColor);
+
+        $('.cat_bg').css('background', '-webkit-gradient(linear, 50% 0%, 50% 100%, from(#ffffff), to('+ newColor +'))');
+        $('.cat_bg').css('background-color', newColor); //fallback
     },
 
     updateTieColor: function() {
@@ -117,7 +119,8 @@ NK.views.colorTable = Backbone.View.extend({
             $('#tie_block .tie_top, #tie_block .tie_bottom').css('border-color', this.model.get('previewColor') + ' transparent transparent transparent')
             $('#tie_block .tie_center').css('border-color', 'transparent transparent ' + this.model.get('previewColor') + ' transparent')
         } else {
-            $('.cat_bg').css('background-color', this.model.get('previewColor'));
+            $('.cat_bg').css('background', '-webkit-gradient(linear, 50% 0%, 50% 100%, from(#ffffff), to('+ this.model.get('previewColor') +'))');
+            $('.cat_bg').css('background-color', this.model.get('previewColor')); //fallback
         }
     },
 
@@ -161,7 +164,8 @@ NK.views.colorTable = Backbone.View.extend({
         $(bgSelector.tie, '.color_label').text(this.model.get('tieColorName'));
 
         // reset shirt color
-        $('.cat_bg').css('background-color', this.model.get('shirtColor'));
+        $('.cat_bg').css('background', '-webkit-gradient(linear, 50% 0%, 50% 100%, from(#ffffff), to('+ this.model.get('shirtColor') +'))');
+        $('.cat_bg').css('background-color', this.model.get('shirtColor')); //fallback
 
         // reset tie color
         $('#tie_block .tie_top, #tie_block .tie_bottom').css('border-color', this.model.get('tieColor') + ' transparent transparent')
