@@ -39,9 +39,9 @@ header {}
 #catphoto .cat4 { background:url('/static/images/cat4.gif') no-repeat center; }
 
 /* Tie */
-#tie_block { position:absolute; top:80px; left:60px; }
+#tie_block { position:absolute; top:81px; left:60px; }
 #tie_block span { position:absolute; border-style:solid; }
-#tie_block .outer { left:-1px; border-color:#ccc transparent; }
+#tie_block .outer { left:-1px; border-color:#888 transparent; }
 #tie_block span { border-color:#fff transparent; }
 #tie_block .tie_top_outer { width:12px; border-width:10px 5px 0 5px; }
 #tie_block .tie_center_outer { width:12px; height:10px; border-width:0 5px 50px 5px; }
