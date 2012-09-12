@@ -27,7 +27,9 @@ NK.models.tabsModel = Backbone.Model.extend({
         currentTab: 'shirt',  // shirt or tie
         currentCat: null,
         shirtColor: '#000',
+        shirtColorName: 'Black',
         tieColor: '#fff',
+        tieColorName: 'White',
         previewColor: '#fff',
         previewColorName: '',
         catSelector: {
@@ -44,12 +46,14 @@ NK.models.tabsModel = Backbone.Model.extend({
         this.set('currentCat', catNum)
     },
 
-    setColor: function(newColor) {
+    setColor: function(newColor, newColorName) {
         // TODO
         if (this.get('currentTab') == 'shirt') {
             this.set('shirtColor', newColor);
+            this.set('shirtColorName', newColorName);
         } else {
             this.set('tieColor', newColor);
+            this.set('tieColorName', newColorName);
         }
     },
 
@@ -106,7 +110,7 @@ NK.views.colorTable = Backbone.View.extend({
         var bgSelector = this.model.get('catSelector');
 
         //TODO
-        $(bgSelector[currentTab], '.cat .color_label').html(this.model.get('previewColorName'));
+        $(bgSelector[currentTab], '.cat .color_label').text(this.model.get('previewColorName'));
 
         if (currentTab == 'tie') {
             // change tie color
@@ -131,7 +135,7 @@ NK.views.colorTable = Backbone.View.extend({
                 this.$('.tabcontent .' + currentTab).removeClass(currentTab);
                 $(e.target).parent('li').addClass('selected');;
                 $(e.target).addClass(currentTab);
-                this.model.setColor(e.target.parentNode.id);
+                this.model.setColor(e.target.parentNode.id, $(e.target.parentNode).data('name'));
 //            }
         }
     },
@@ -153,9 +157,8 @@ NK.views.colorTable = Backbone.View.extend({
         var bgSelector = this.model.get('catSelector');
 
 //TODO: update color label
-//        $(bgSelector.shirt, '.color_label').html('');
-//        $(bgSelector.shirt, '.color_label').html(this.model.get('previewColorName'));
-//        $(bgSelector.tie, '.color_label').html('');
+        $(bgSelector.shirt, '.color_label').text(this.model.get('shirtColorName'));
+        $(bgSelector.tie, '.color_label').text(this.model.get('tieColorName'));
 
         // reset shirt color
         $('.cat_bg').css('background-color', this.model.get('shirtColor'));
