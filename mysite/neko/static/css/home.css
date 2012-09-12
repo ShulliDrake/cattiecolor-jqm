@@ -58,3 +58,6 @@ footer { clear:left; display:block; padding: 30px 50px; background-color:#f7f7f7
 
 /*bootstrap override*/
 header .navbar-inner { border-radius:0; }
+
+/* google +1 */
+#nk_gplus { float:right; }
