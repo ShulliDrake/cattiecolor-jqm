@@ -42,7 +42,7 @@ header {}
 #tie_block { position:absolute; top:80px; left:60px; }
 #tie_block span { position:absolute; border-style:solid; }
 #tie_block .outer { left:-1px; border-color:#ccc transparent; }
-#tie_block span { border-color:#ddd transparent; }
+#tie_block span { border-color:#fff transparent; }
 #tie_block .tie_top_outer { width:12px; border-width:10px 5px 0 5px; }
 #tie_block .tie_center_outer { width:12px; height:10px; border-width:0 5px 50px 5px; }
 #tie_block .tie_bottom_outer { top:60px; border-width:11px 11px 0 11px; }
@@ -51,7 +51,7 @@ header {}
 #tie_block .tie_bottom { top:60px; border-width:10px 10px 0 10px; }
 
 /* Color Labels */
-.cat .color_label { font-size:11px; text-shadow:1px 1px 1px #ddd; }
+.cat .color_label { font-size:11px; text-shadow:1px 1px 1px #ddd; margin-top:10px; margin-left:10px; }
 .cat .color_label span { display:inline-block; width:70px; height:20px; font-style:italic; }
 
 footer { clear:left; display:block; padding: 30px 50px; background-color:#f7f7f7; }
