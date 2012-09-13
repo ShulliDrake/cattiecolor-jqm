@@ -39,16 +39,16 @@ header {}
 #catphoto .cat4 { background:url('/static/images/cat4.gif') no-repeat center; }
 
 /* Tie */
-#tie_block { position:absolute; top:81px; left:60px; }
+#tie_block { position:absolute; top:81px; left:55px; }
 #tie_block span { position:absolute; border-style:solid; }
 #tie_block .outer { left:-1px; border-color:#888 transparent; }
 #tie_block span { border-color:#fff transparent; }
-#tie_block .tie_top_outer { width:12px; border-width:10px 5px 0 5px; }
-#tie_block .tie_center_outer { width:12px; height:10px; border-width:0 5px 50px 5px; }
-#tie_block .tie_bottom_outer { top:60px; border-width:11px 11px 0 11px; }
-#tie_block .tie_top { width:10px; border-width:10px 5px 0 5px; }
-#tie_block .tie_center { width:10px; height:10px; border-width:0 5px 50px 5px; }
-#tie_block .tie_bottom { top:60px; border-width:10px 10px 0 10px; }
+#tie_block .tie_top_outer { width:12px; border-width:10px 5px 0 5px; left:4px; }
+#tie_block .tie_center_outer { width:12px; height:10px; border-width:0 10px 30px 10px; }
+#tie_block .tie_bottom_outer { top:40px; border-width:16px 16px 0 16px; }
+#tie_block .tie_top { width:10px; border-width:10px 5px 0 5px; left:5px; }
+#tie_block .tie_center { width:10px; height:10px; border-width:0 10px 30px 10px; }
+#tie_block .tie_bottom { top:40px; border-width:15px 15px 0 15px; }
 
 /* Color Labels */
 .cat .color_label { font-size:11px; text-shadow:1px 1px 1px #ddd; margin-top:10px; margin-left:10px; }
