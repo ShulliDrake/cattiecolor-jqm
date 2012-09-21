@@ -1,0 +1,17 @@
+application: nyantiepic
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /static
+  static_dir: neko/static
+
+- url: /.*
+  script: main.app
+
+libraries:
+- name: django
+  version: "latest"
+
