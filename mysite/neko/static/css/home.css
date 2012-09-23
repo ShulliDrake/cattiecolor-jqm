@@ -1,14 +1,11 @@
 * { font-family:Tahoma, Geneva, sans-serif; }
-/*body { background-color:#F7FFFF; }*/
 a { text-decoration:none; }
 ul { margin:0; }
 li { list-style:none; }
 
 #container {}
 
-header {}
-
-#content { width:950px; min-height:550px; margin-left:auto; margin-right:auto; background-color:#fff; margin-bottom:18px; /*border-radius:5px; box-shadow:0 0 20px #ccc; */}
+#content { background-color:#fafafa; min-height:500px; }
 
 .tabs { height:24px; border-bottom:1px solid #f1f1f1; margin-right:4px; }
 .tabs ul li { color:#999; float:left; width:50px; text-align:center; padding:3px 5px; border:1px solid #e1e1e1; border-top-right-radius:8px; border-bottom:none; background-color:#fcfcfc; }
@@ -22,13 +19,12 @@ header {}
 #content .tabcontent ul li.selected span.shirt:before { content:"S"; margin-left:10px; }
 #content .tabcontent ul li.selected span.tie:after { content:"T"; float:right; margin-right:10px; }
 
-#content { padding:50px; }
 #content section { float:left; margin-right:50px; margin-top:25px; }
 #content .cat { }
 #content .colors { }
 
 
-#catbubble { position:relative; width:498px; height:60px; border:2px groove #eee; border-radius:7px; padding:10px; }
+#catbubble { position:relative; width:498px; height:60px; border:2px groove #eee; border-radius:7px; padding:10px; background-color:#fff; }
 #catbubble p { font-size:1.2em; text-shadow:1px 1px 1px #717171; }
 #catbubble .nk_arrow_outer { position:absolute; bottom:-12px; border-width:12px 12px 0; border-color:#aaa transparent; border-style:solid; left:10px; }
 #catbubble .nk_arrow_inner { position:absolute; bottom:-10px; border-width:11px 11px 0; border-color:#fff transparent; border-style:solid; left:11px; }
@@ -59,8 +55,6 @@ header {}
 /* Color Labels */
 .cat .color_label { font-size:11px; text-shadow:1px 1px 1px #ddd; margin-top:10px; margin-left:10px; }
 .cat .color_label span { display:inline-block; width:70px; height:20px; font-style:italic; }
-
-footer { clear:left; display:block; padding: 30px 50px; background-color:#f7f7f7; }
 
 /*bootstrap override*/
 header .navbar-inner { border-radius:0; }
