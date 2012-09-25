@@ -8,12 +8,12 @@ li { list-style:none; }
 #content { background-color:#fafafa; min-height:500px; }
 
 .tabs { height:24px; border-bottom:1px solid #f1f1f1; margin-right:4px; }
-.tabs ul li { color:#999; float:left; width:50px; text-align:center; padding:3px 5px; border:1px solid #e1e1e1; border-top-right-radius:8px; border-bottom:none; background-color:#fcfcfc; }
-.tabs ul li.current { color:#333; border-bottom:1px solid #fff; text-shadow:#555 0.1em 0.1em 0.1em; background-color:#fff; }
-#content .tabscontent { clear:both; padding-left:10px; padding-bottom:10px; box-shadow:10px 15px 10px #808080; }
+.tabs ul li { color:#999; float:left; width:50px; text-align:center; padding:3px 5px; border:1px solid #e1e1e1; border-top-right-radius:8px; border-bottom:none; background-color:#fcfcfc; cursor:pointer; }
+.tabs ul li.current { color:#333; border-bottom:1px solid #fff; text-shadow:#555 0.1em 0.1em 0.1em; background-color:#fff; cursor:auto; }
+#content .tabscontent { clear:both; padding-left:10px; padding-bottom:10px; box-shadow:10px 15px 10px #808080; background-color:#fff; }
 #content .tabscontent { border:1px solid #e1e1e1;border-top:none; border-top-right-radius:7px; border-bottom-left-radius:7px; border-bottom-right-radius:7px; /*margin-top:-1px;*/ }
 #content .tabcontent ul li { position:relative; display:inline-block; min-width:50px; height:30px; padding:0 5px 5px 0; font-size:8px; }
-#content .tabcontent span.c { position:absolute; bottom:0; left:0; width:40px; height:30px; box-shadow:2px 2px 2px #808080; }
+#content .tabcontent span.c { position:absolute; bottom:0; left:0; width:40px; height:30px; box-shadow:2px 2px 2px #808080; cursor:pointer; }
 #content .tabcontent ul li.selected span.c { box-shadow:4px 4px 4px #606060; width:43px; height:32px; }
 #content li.selected span.shirt, #content li.selected span.tie { text-shadow:#000 0.1em 0.1em 0.2em; color:#fff; font-size:1.9em; line-height:2em; }
 #content .tabcontent ul li.selected span.shirt:before { content:"S"; margin-left:10px; }
