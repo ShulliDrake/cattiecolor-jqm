@@ -7,6 +7,7 @@ NK.views = {}; // Backbone views
 
 $(function(){
 
+    $('.carousel').carousel('pause');
     var colors = new NK.views.colorTable({
         el: $('.colors'),
         model: new NK.models.tabsModel

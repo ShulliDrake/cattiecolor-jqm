@@ -15,5 +15,6 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
 
-     url(r'', 'neko.views.home'),
+     url(r'^photos', 'neko.views.photos'),
+     url(r'^$', 'neko.views.home'),
 )

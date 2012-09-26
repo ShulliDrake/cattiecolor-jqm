@@ -12,3 +12,10 @@ def home(request):
     return render_to_response('home.html',
                               {'colors': tie_colors},
                               context_instance=RequestContext(request))
+
+
+def photos(request):
+    """Photo gallery page"""
+    return render_to_response('photos.html',
+                              {},
+                              context_instance=RequestContext(request))
