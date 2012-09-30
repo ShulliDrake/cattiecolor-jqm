@@ -1,11 +1,12 @@
 * { font-family:Tahoma, Geneva, sans-serif; }
+
 a { text-decoration:none; }
 ul { margin:0; }
 li { list-style:none; }
 
 #container {}
 
-#content { background-color:#fafafa; min-height:500px; }
+#content { width:950px; min-height:550px; margin-left:auto; margin-right:auto; background-color:#fff; margin-bottom:18px; border-radius:5px; box-shadow:0 0 20px #ccc; }
 
 .tabs { height:24px; border-bottom:1px solid #f1f1f1; margin-right:4px; }
 .tabs ul li { color:#999; float:left; width:50px; text-align:center; padding:3px 5px; border:1px solid #e1e1e1; border-top-right-radius:8px; border-bottom:none; background-color:#fcfcfc; cursor:pointer; }
