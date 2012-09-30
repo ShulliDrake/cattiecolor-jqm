@@ -1,6 +1,8 @@
 # Copyright (C) 2012 Nozomi Lipps
 from collections import OrderedDict
 
+YAWNNEKO_DOMAIN = "www.yawnneko.com"
+
 TIE_COLORS = [
     OrderedDict(
         [('#000', 'Black'),

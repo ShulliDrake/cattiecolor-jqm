@@ -4,9 +4,15 @@ a { text-decoration:none; }
 ul { margin:0; }
 li { list-style:none; }
 
-#container {}
+header { width:940px; margin:0 auto 20px; padding:10px 0; }
+header a { display:block; color:#333; margin-top:5px; margin-bottom:5px; }
+header a:hover { text-decoration:none; }
+header .logo { float:left; font-wight:bold; font-size:1.5em; margin-right:15px; }
+header ul { height:38px; }
+header ul li { float:left; margin-right:15px; margin-top:2px; list-style:none; }
+header ul li a { padding-left:15px; border-left:1px solid #ccc; }
 
-#content { width:950px; min-height:550px; margin-left:auto; margin-right:auto; background-color:#fff; margin-bottom:18px; border-radius:5px; box-shadow:0 0 20px #ccc; }
+#content { width:950px; min-height:550px; margin-left:auto; margin-right:auto; margin-bottom:18px; border-radius:5px; box-shadow:0 0 20px #ccc; }
 
 .tabs { height:24px; border-bottom:1px solid #f1f1f1; margin-right:4px; }
 .tabs ul li { color:#999; float:left; width:50px; text-align:center; padding:3px 5px; border:1px solid #e1e1e1; border-top-right-radius:8px; border-bottom:none; background-color:#fcfcfc; cursor:pointer; }
@@ -63,8 +69,12 @@ li { list-style:none; }
 .cat_carousel .carousel { width:100%; }
 .cat_carousel img { height:350px; margin:0 auto; }
 
+footer { width:100%; margin-top:20px; }
+footer div { width: 940px; margin:0 auto; padding:20px 0; }
+
 /*bootstrap override*/
 header .navbar-inner { border-radius:0; }
+.container .hero-unit { background-color:#fafafa; }
 
 /* google +1 */
 #nk_gplus { float:right; }
