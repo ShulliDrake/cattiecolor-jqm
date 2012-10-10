@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><title>{% block title %}YawnNeko{% endblock %}</title>
-<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/home-min.css" />
 </head>
 <body>
 
-<header class="navbar">
-  {% include "common/header.html" %}
-</header>
+<div data-role="page">
+  <div data-role="header"><h1>Color Picker</h1></div>
 
-<div class="container">
+  <div data-role="content">
 
-{% block content %}
-{% endblock %}
+    {% block content %}
+    {% endblock %}
 
-</div><!--container-->
+  </div><!--container-->
 
-<footer class="footer">
-  <div>&copy {% now "Y" %} YawnNeko</div>
-</footer>
+  <div data-role="footer">
+    <h5>&copy {% now "Y" %} YawnNeko</h5>
+  </div>
+</div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="{{ STATIC_URL }}js/lib/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 <script src="{{ STATIC_URL }}js/lib/underscore-min.js"></script>
 <script src="{{ STATIC_URL }}js/lib/backbone-min.js"></script>
 <script src="{{ STATIC_URL }}js/neko-min.js"></script>

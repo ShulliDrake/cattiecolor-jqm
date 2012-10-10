@@ -4,36 +4,11 @@
 
 {% block content %}
 
-<div id="content" class="hero-unit">
-
-  {% include "common/google_plus_button.html" %}
-    <div id="catbubble">
-      <p>Meow meow meow meow meow, dress me cute!</p>
-      <p>I like pink!</p>
-      <span class="nk_arrow_outer"></span>
-      <span class="nk_arrow_inner"></span>
-    </div>
-
   <section class="cat">
-
-    {% comment %}<!--Disable drop-down for alpha release-->
-    <div class="btn-group">
-      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-        Select your cat
-        <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu">
-        <li><a href="#cat1">cat1</a></li>
-        <li><a href="#cat2">cat2</a></li>
-        <li><a href="#cat3">cat3</a></li>
-        <li><a href="#cat4">cat4</a></li>
-      </ul>
-    </div>
-    {% endcomment %}
 
     <div id="catphoto">
       <span class="cat_bg">
-      <img src="{{ STATIC_URL }}images/cat_final.png" alt="Cute Cat" height="190" width="170" style="margin-left:-2px"/>
+      <img src="{{ STATIC_URL }}images/cat_final.png" alt="Cute Cat" height="150" width="130" style="margin-left:-2px"/>
       <div id="tie_block">
         <span class="tie_top_outer outer"></span>
         <span class="tie_center_outer outer"></span>
@@ -44,31 +19,34 @@
       </div>
       </span>
     </div>
-    <div class="color_label">Shirt/<span class="shirt">Black</span>&nbsp;Tie/<span class="tie">White</span></div>
+    <div class="color_label">
+      <div>Shirt<h4><span class="shirt">Black</span></h4></div>
+      <div>Tie<h4><span class="tie">White</span></h4></div>
+    </div>
 
   </section>
-
   <section class="colors">
 
-    <div class="tabs">
-      <ul>
-        <li id="shirt" class="current">Shirt</li>
-        <li id="tie">Tie</li>
-      </ul>
+    <div class="tab_buttons" data-role="controlgroup" data-type="horizontal" data-mini="true">
+      <input type="radio" id="radio_shirt" name="radio-tab" value="shirt" checked="checked" />
+      <label class="shirt" for="radio_shirt">Shirt</label>
+      <input type="radio" id="radio_tie" name="radio-tab" value="tie" />
+      <label class="tie" for="radio_tie">Tie</label>
     </div>
+
     <div class="tabscontent">
-      <div class="tabcontent">
         {% for row in colors %}
-          <ul>
+          <div>
           {% for color, name in row.items %}
-            <li id="{{ color }}" data-name="{{ name }}">
+            <div id="{{ color }}" data-name="{{ name }}">
               <span class="c" style="background-color:{{ color }}"></span>
-            </li>
+            </div>
           {% endfor %}
-          </ul>
+          </div>
         {% endfor %}
-      </div>
     </div><!--tabscontent-->
+{% comment %}comment out for now
+  {% include "common/google_plus_button.html" %}
+{% endcomment %}
   </section>
-</div><!--home-->
 {% endblock %}
