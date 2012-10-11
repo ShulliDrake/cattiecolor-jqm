@@ -7,7 +7,6 @@ NK.views = {}; // Backbone views
 
 $(function(){
 
-    $('.carousel').carousel('pause');
     var colors = new NK.views.colorTable({
         el: $('.colors'),
         model: new NK.models.tabsModel
@@ -50,11 +49,11 @@ NK.models.tabsModel = Backbone.Model.extend({
     setColor: function(newColor, newColorName) {
         // TODO
         if (this.get('currentTab') == 'shirt') {
-            this.set('shirtColor', newColor);
             this.set('shirtColorName', newColorName);
+            this.set('shirtColor', newColor);
         } else {
-            this.set('tieColor', newColor);
             this.set('tieColorName', newColorName);
+            this.set('tieColor', newColor);
         }
     },
 
@@ -69,10 +68,10 @@ NK.models.tabsModel = Backbone.Model.extend({
 NK.views.colorTable = Backbone.View.extend({
 
     events: {
-        'click .tabs li': 'switchTab',
-        'click .tabcontent li span': 'setCurrentColor',
-        'mouseover .tabcontent li': 'changeColor',
-        'mouseleave .tabcontent': 'resetColor'
+        'change .ui-radio input': 'switchTab',
+        'click .tabscontent span': 'setCurrentColor',
+        'mouseover .tabscontent li': 'changeColor',
+        'mouseleave .tabscontent': 'resetColor'
     },
 
     initialize: function(){
@@ -81,31 +80,30 @@ NK.views.colorTable = Backbone.View.extend({
         this.model.bind('change:tieColor', this.updateTieColor, this);
     },
 
-    switchTab: function(e) {
-        if (e && e.target) {
-            $(e.target).addClass('current');
-            $(e.target).siblings().removeClass('current');
-            this.model.setCurrentTab(e.target.id);
-        }
+    switchTab: function() {
+        var selected = this.$('input[name=radio-tab]:checked').val();
+        this.model.setCurrentTab(selected);
     },
 
     // shirt color is clicked
     updateShirtColor: function() {
         var newColor = this.model.get('shirtColor');
         var bgSelector = this.model.get('catSelector');
-        $(bgSelector.shirt, '.color_label').text(this.model.get('previewColorName'));
-
 
         $('.cat_bg').css('background', '-webkit-gradient(linear, 50% 0%, 50% 100%, from(#ffffff), to('+ newColor +'))');
         $('.cat_bg').css('background-color', newColor); //fallback
+
+        $(bgSelector.shirt, '.color_label').text(this.model.get('shirtColorName'));
     },
 
     updateTieColor: function() {
         var newColor = this.model.get('tieColor');
+        var bgSelector = this.model.get('catSelector');
         // update tie color
         $('#tie_block .tie_top, #tie_block .tie_bottom').css('border-color', newColor + ' transparent transparent')
         $('#tie_block .tie_center').css('border-color', 'transparent transparent ' + newColor + ' transparent')
 
+        $(bgSelector.tie, '.color_label').text(this.model.get('tieColorName'));
     },
 
     updatePreviewColor: function() {
@@ -135,9 +133,9 @@ NK.views.colorTable = Backbone.View.extend({
 //            if (e.target.id) {
                 // TODO - both shirt and tie may pick same color
                 var currentTab = this.model.get('currentTab');
-                this.$('.tabcontent .' + currentTab).parent().removeClass('selected');
-                this.$('.tabcontent .' + currentTab).removeClass(currentTab);
-                $(e.target).parent('li').addClass('selected');;
+                this.$('.tabscontent .' + currentTab).parent().removeClass('selected');
+                this.$('.tabscontent .' + currentTab).removeClass(currentTab);
+                $(e.target).parent('div').addClass('selected');;
                 $(e.target).addClass(currentTab);
                 this.model.setColor(e.target.parentNode.id, $(e.target.parentNode).data('name'));
 //            }
